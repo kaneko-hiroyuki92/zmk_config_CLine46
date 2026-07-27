@@ -25,25 +25,25 @@
             key-positions = <12 13>;
         };
 
-        F-7-1 {
+        combo_f7_l0 {
             bindings = <&kp F7>;
             key-positions = <7 8>;
             layers = <0>;
         };
 
-        F-7 {
+        combo_f7_mouse {
             bindings = <&kp F7>;
             key-positions = <3 2>;
             layers = <2>;
         };
 
-        F-8 {
+        combo_f8_mouse {
             bindings = <&kp F8>;
             key-positions = <3 4>;
             layers = <2>;
         };
 
-        F-8-1 {
+        combo_f8_l0 {
             bindings = <&kp F8>;
             key-positions = <8 9>;
             layers = <0>;
