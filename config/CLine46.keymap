@@ -24,6 +24,42 @@
             bindings = <&kp LS(TAB)>;
             key-positions = <12 13>;
         };
+
+        F-7-1 {
+            bindings = <&kp F7>;
+            key-positions = <7 8>;
+            layers = <0>;
+        };
+
+        F-7 {
+            bindings = <&kp F7>;
+            key-positions = <3 2>;
+            layers = <2>;
+        };
+
+        F-8 {
+            bindings = <&kp F8>;
+            key-positions = <3 4>;
+            layers = <2>;
+        };
+
+        F-8-1 {
+            bindings = <&kp F8>;
+            key-positions = <8 9>;
+            layers = <0>;
+        };
+
+        coron {
+            bindings = <&kp LS(SEMICOLON)>;
+            key-positions = <14 15>;
+            layers = <2>;
+        };
+
+        FandP {
+            bindings = <&FandP>;
+            key-positions = <10 2>;
+            layers = <0>;
+        };
     };
 
     macros {
@@ -32,6 +68,13 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        FandP: FandP {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp LS(F) &kp A &kp N &kp D &kp LS(P) &kp N5 &kp NUMBER_2 &kp N9>;
+            label = "FANDP";
         };
     };
 
@@ -49,7 +92,23 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_IME";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2>, <&kp LANGUAGE_1>;
+            bindings = <&kp LANGUAGE_1>, <&mo 1>;
+        };
+
+        ht_bspc: ht_bspc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_BSPC";
+            bindings = <&kp>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        MO4: MO4 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MO4";
+            #binding-cells = <0>;
+            bindings = <&lt 4 BACKSPACE>, <&ht_bspc BACKSPACE 0>;
         };
     };
 
@@ -58,28 +117,28 @@
 
         default_layer {
             bindings = <
-&kp ESCAPE  &kp Q             &kp W     &kp E     &kp R    &kp T                                   &kp Y     &kp U  &kp I      &kp O    &kp P      &kp LEFT_BRACKET
-&kp TAB     &kp A             &kp S     &kp D     &kp F    &kp G                                   &kp H     &kp J  &kp K      &kp L    &kp MINUS  &kp SINGLE_QUOTE
-&kp LSHIFT  &kp Z             &kp X     &kp C     &kp V    &kp B                                   &kp N     &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp NON_US_BSLH
-            &kp LEFT_CONTROL  &kp LGUI  &kp LALT  &td_ime  &mo 1  &mt LEFT_SHIFT SPACE    &kp RET  &kp BSPC                    &none    &kp DEL
+&kp ESCAPE  &kp Q             &kp W     &kp E     &kp R           &kp T                                     &kp Y  &kp U  &kp I      &kp O    &kp P      &kp LEFT_BRACKET
+&kp TAB     &kp A             &kp S     &kp D     &kp F           &kp G                                     &kp H  &kp J  &kp K      &kp L    &kp MINUS  &kp SINGLE_QUOTE
+&kp LSHIFT  &kp Z             &kp X     &kp C     &kp V           &kp B                                     &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp INTERNATIONAL_1
+            &kp LEFT_CONTROL  &kp LGUI  &kp LALT  &kp LANGUAGE_2  &td_ime  &mt LEFT_SHIFT SPACE    &kp RET  &MO4                     &none    &kp DEL
             >;
         };
 
         layer_1 {
             bindings = <
-&kp CARET  &kp EQUAL     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp AT_SIGN                        &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp SEMI   &kp EXCLAMATION  &kp QMARK
-&kp MINUS  &kp PLUS      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp HASH                           &kp LEFT_BRACKET      &kp SINGLE_QUOTE   &kp RIGHT_BRACKET      &kp COLON  &kp AMPERSAND    &kp PIPE
-&kp SLASH  &kp ASTERISK  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp UNDERSCORE                     &kp SLASH             &kp BACKSLASH      &kp COMMA              &kp DOT    &kp DOLLAR       &kp PERCENT
-           &kp ESC       &kp NUMBER_0  &kp DOT       &trans        &trans          &trans    &kp RET  &kp BSPC                                                        &kp DEL    &trans
+&none  &kp LG(DOWN)       &kp LG(LEFT)      &kp LG(UP)         &kp LG(RIGHT)     &kp AT_SIGN                    &kp LC(MINUS)          &kp F2     &kp UP     &kp K_APPLICATION  &kp PRINTSCREEN   &none
+&none  &kp F4             &kp LS(LG(LEFT))  &kp LG(LS(RIGHT))  &kp LC(NUMBER_1)  &kp HASH                       &kp LC(LS(SEMICOLON))  &kp LEFT   &kp DOWN   &kp RIGHT          &none             &kp LC(S)
+&none  &kp LC(SEMICOLON)  &kp LC(APOS)      &none              &kp LS(LC(N))     &none                          &kp LC(X)              &kp LC(C)  &kp LC(V)  &kp LC(LS(V))      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+       &none              &none             &none              &none             &none        &none    &kp RET  &kp BSPC                                     &none              &none
             >;
         };
 
         MOUSE {
             bindings = <
-&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                     &kp LC(Y)  &kp LC(C)       &kp LC(V)       &kp LC(X)        &kp LC(P)  &trans
-&trans  &trans  &kp F4  &kp F5  &kp F6  &kp F11                     &kp LC(Z)  &mkp MB1        &kp UP_ARROW    &mkp MB2         &kp LC(F)  &trans
-&trans  &trans  &kp F1  &kp F2  &kp F3  &kp F12                     &kp LC(A)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans     &trans
-        &trans  &trans  &trans  &trans  &trans   &trans    &kp RET  &kp BSPC                                   &kp HOME         &kp END
+&none  &kp LS(N5)  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SLASH                       &kp LC(Y)  &kp LC(C)  &kp LC(V)  &kp LC(X)  &kp LC(P)  &none
+&none  &none       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK                    &kp LC(Z)  &mkp MB1   &mkp MB3   &mkp MB2   &kp LC(F)  &none
+&none  &none       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MINUS                       &kp LC(A)  &mkp MB4   &mo 2      &mkp MB5   &mo 3      &none
+       &none       &kp KP_NUMBER_0  &kp PERIOD       &none            &kp KP_PLUS      &to 0    &kp RET  &kp BSPC                         &kp HOME   &kp END
             >;
         };
 
@@ -94,10 +153,10 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans        &trans        &trans        &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &bt BT_SEL 4  &trans        &trans        &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &bt BT_SEL 0  &trans        &trans        &trans  &trans    &trans  &trans                  &trans  &trans
+&none  &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(N5)                           &kp LS(NUMBER_6)  &kp LS(N7)         &kp LS(N8)       &kp LS(N9)  &kp MINUS      &kp EQUAL
+&none  &none             &none             &none             &none             &none                                &none             &kp RIGHT_BRACKET  &kp NON_US_HASH  &none       &kp SEMICOLON  &kp APOS
+&none  &none             &none             &none             &none             &none                                &none             &none              &none            &none       &none          &none
+       &none             &none             &none             &none             &none       &kp LEFT_SHIFT    &none  &none                                                 &none       &none
             >;
         };
 
