@@ -19,7 +19,7 @@
 };
 
  &zip_temp_layer {
-    excluded-positions = <19 20 21 22 31 33>;
+    excluded-positions = <19 20 21 22 23 31 33 35>;
 };
 
 &pinctrl {
