@@ -5,6 +5,17 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <behaviors/runtime-input-processor.dtsi>
+
+&hdpi {
+    scale-multiplier = <2>;
+    scale-divisor = <1>;
+};
+
+&ldpi {
+    scale-multiplier = <1>;
+    scale-divisor = <3>;
+};
 
 &mt {
     flavor = "balanced";
@@ -129,8 +140,8 @@
         MOUSE {
             bindings = <
 &kp ESCAPE  &kp LS(N5)  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SLASH                       &none     &none     &none     &none     &none  &none
-&none       &none       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK                    &none     &mkp MB1  &mkp MB3  &mkp MB2  &mo 3  &kp F23
-&none       &none       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MINUS                       &none     &mkp MB4  &none     &mkp MB5  &none  &kp F24
+&none       &none       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK                    &none     &mkp MB1  &mkp MB3  &mkp MB2  &mo 3  &hdpi
+&none       &none       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MINUS                       &none     &mkp MB4  &none     &mkp MB5  &none  &ldpi
             &none       &kp KP_NUMBER_0  &kp PERIOD       &none            &kp KP_PLUS      &none    &kp RET  &kp BSPC                      &none     &none
             >;
         };
