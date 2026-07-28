@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <mouse-gesture.dtsi>
 
 &rip_hdpi {
     scale-multiplier = <2>;
@@ -15,6 +16,32 @@
 &rip_ldpi {
     scale-multiplier = <1>;
     scale-divisor = <3>;
+};
+
+&zip_mouse_gesture {
+    stroke-size = <300>;
+    enable-eager-mode;
+    suppress-movement;
+
+    gesture_copy {
+        pattern = <GESTURE_UP>;
+        bindings = <&kp LC(C)>;
+    };
+
+    gesture_paste {
+        pattern = <GESTURE_DOWN>;
+        bindings = <&kp LC(V)>;
+    };
+
+    gesture_cut {
+        pattern = <GESTURE_LEFT>;
+        bindings = <&kp LC(X)>;
+    };
+
+    gesture_shift_paste {
+        pattern = <GESTURE_RIGHT>;
+        bindings = <&kp LC(LS(V))>;
+    };
 };
 
 &mt {
