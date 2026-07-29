@@ -57,6 +57,21 @@
             pattern = <GESTURE_UP>;
             bindings = <&kp PSCRN>;
         };
+
+  　　  gesture_next_tab {
+    　　    pattern = <GESTURE_RIGHT>;
+    　　    bindings = <&kp LC(TAB)>;
+　　    };
+
+　　    gesture_previous_tab {
+　　        pattern = <GESTURE_LEFT>;
+　　        bindings = <&kp LC(LS(TAB))>;
+ 　　   };
+
+　　    gesture_task_view {
+ 　　       pattern = <GESTURE_DOWN>;
+　　        bindings = <&kp LG(TAB)>;
+　　    };
     };
 };
 
