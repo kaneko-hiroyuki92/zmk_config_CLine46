@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: cormoran
       url-base: https://github.com/cormoran
+    - name: kaneko-hiroyuki92
+      url-base: https://github.com/kaneko-hiroyuki92
     - name: badjeff    # <-- PMW3610
       url-base: https://github.com/badjeff
     - name: caksoylar  # <-- RGB LED
@@ -16,8 +18,8 @@ manifest:
   projects:
     # ZMK: DYA Studio 用カスタム RPC サブシステム付き cormoran fork
     - name: zmk
-      remote: cormoran
-      revision: v0.3-branch+dya
+      remote: kaneko-hiroyuki92
+      revision: fix/input-processor-stop
       import: app/west.yml
     - name: zmk-feature-non-lipo-battery-management
       remote: takamaru-fpv
