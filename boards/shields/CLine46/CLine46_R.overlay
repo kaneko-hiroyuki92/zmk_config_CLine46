@@ -2,8 +2,18 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
 #include <input/processors/runtime-input-processor.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 #include <behaviors/battery_history_request.dtsi>
 
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    track-remainders;
+    min-factor = <900>;
+    max-factor = <3500>;
+    speed-threshold = <1200>;
+    speed-max = <6000>;
+    acceleration-exponent = <2>;
+};
 
 &default_transform {
     col-offset = <6>;
@@ -80,12 +90,13 @@
     scroller {
         layers = <3>;
         input-processors = 
+            <&pointer_accel>,
             // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
             // <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,       //Y軸反転
             <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
             //<&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   //スクロールのY軸反転
-            <&zip_scroll_scaler 1 8>;                           //スクロール量を1/8倍
+            <&zip_scroll_scaler 1 12>;                           //スクロール量を1/12倍
     };
 };
