@@ -19,7 +19,7 @@
 };
 
 &zip_mouse_gesture {
-    stroke-size = <300>;
+    stroke-size = <200>;
     enable-eager-mode;
     suppress-movement;
 
@@ -41,6 +41,23 @@
     gesture_shift_paste {
         pattern = <GESTURE_RIGHT>;
         bindings = <&kp LC(LS(V))>;
+    };
+};
+
+/ {
+    zip_screenshot_gesture: zip_screenshot_gesture {
+        compatible = "zmk,input-processor-mouse-gesture";
+        #input-processor-cells = <0>;
+
+        stroke-size = <200>;
+        enable-eager-mode;
+        always-active;
+        suppress-movement;
+
+        gesture_screenshot {
+            pattern = <GESTURE_UP>;
+            bindings = <&kp PSCRN>;
+        };
     };
 };
 
