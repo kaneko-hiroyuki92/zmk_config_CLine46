@@ -19,7 +19,7 @@
 };
 
  &zip_temp_layer {
-    excluded-positions = <19 20 21 22 23 31 33 35>;
+    excluded-positions = <8 19 20 21 22 23 31 33 35>;
 };
 
 &pinctrl {
@@ -73,6 +73,7 @@
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+        <&zip_mouse_gesture>,
         <&zip_temp_layer 2 10000>;                            //オートマウスレイヤーの選択;
 
 
