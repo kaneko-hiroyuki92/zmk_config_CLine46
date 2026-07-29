@@ -88,7 +88,9 @@
 
     screenshot_gesture {
         layers = <5>;
-        input-processors = <&zip_screenshot_gesture>;
+        input-processors =
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_screenshot_gesture>;
     };
 
     scroller {
