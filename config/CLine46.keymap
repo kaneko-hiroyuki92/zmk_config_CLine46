@@ -2,11 +2,11 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors/runtime-input-processor.dtsi>
+#include <mouse-gesture.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <mouse-gesture.dtsi>
 
 &rip_hdpi {
     scale-multiplier = <2>;
@@ -160,10 +160,10 @@
 
         MOUSE {
             bindings = <
-&kp ESCAPE  &kp LS(N5)  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SLASH                       &none     &none     &mouse_gesture     &none     &none  &none
-&none       &none       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK                    &none     &mkp MB1  &mkp MB3  &mkp MB2  &mo 3  &rip_hdpi
-&none       &none       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MINUS                       &none     &mkp MB4  &none     &mkp MB5  &none  &rip_ldpi
-            &none       &kp KP_NUMBER_0  &kp PERIOD       &none            &kp KP_PLUS      &none    &kp RET  &kp BSPC                      &none     &none
+&kp ESCAPE  &kp LS(N5)  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SLASH                       &none     &none     &mouse_gesture  &none     &none  &none
+&none       &none       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK                    &none     &mkp MB1  &mkp MB3        &mkp MB2  &mo 3  &rip_hdpi
+&none       &none       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_MINUS                       &none     &mkp MB4  &none           &mkp MB5  &none  &rip_ldpi
+            &none       &kp KP_NUMBER_0  &kp PERIOD       &none            &kp KP_PLUS      &none    &kp RET  &kp BSPC                            &none     &none
             >;
         };
 
@@ -185,7 +185,7 @@
             >;
         };
 
-        layer_5 {
+        SCREENSHOT {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
