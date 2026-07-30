@@ -86,11 +86,13 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
+						layers = <0>;
         };
 
         shift_tab {
             bindings = <&kp LS(TAB)>;
             key-positions = <12 13>;
+						layers = <0>;
         };
 
         combo_f7_l0 {
