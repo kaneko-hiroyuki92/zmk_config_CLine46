@@ -133,13 +133,31 @@
 
         tabmove1 {
             bindings = <&kp LC(TAB)>;
-            key-positions = <15 14>;
+            key-positions = <15 16>;
             layers = <0>;
         };
 
         tabmove2 {
             bindings = <&kp LC(LS(TAB))>;
-            key-positions = <16 15>;
+            key-positions = <15 14>;
+            layers = <0>;
+        };
+
+        CtlA {
+            bindings = <&kp LC(A)>;
+            key-positions = <16 40>;
+            layers = <0>;
+        };
+
+        WinE {
+            bindings = <&kp LG(E)>;
+            key-positions = <3 40>;
+            layers = <0>;
+        };
+
+        CtlZ {
+            bindings = <&kp LC(Z)>;
+            key-positions = <15 40>;
             layers = <0>;
         };
     };
