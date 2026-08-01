@@ -211,10 +211,10 @@
 
         layer_1 {
             bindings = <
-&none  &kp LG(DOWN)       &kp LG(LEFT)      &kp LG(UP)         &kp LG(RIGHT)     &none                    &kp LC(MINUS)          &kp F2     &kp UP     &kp K_APPLICATION  &kp PRINTSCREEN   &PC_shutdown2
-&none  &kp F4             &kp LS(LG(LEFT))  &kp LG(LS(RIGHT))  &kp LC(NUMBER_1)  &none                    &kp LC(LS(SEMICOLON))  &kp LEFT   &kp DOWN   &kp RIGHT          &none             &kp LC(S)
-&none  &kp LC(SEMICOLON)  &kp LC(APOS)      &none              &kp LS(LC(N))     &none                    &kp LC(X)              &kp LC(C)  &kp LC(V)  &kp LC(LS(V))      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-       &trans             &none             &none              &none             &none  &none    &kp RET  &kp BSPC                                     &none              &none
+&none   &kp LG(DOWN)       &kp LG(LEFT)      &kp LG(UP)         &kp LG(RIGHT)     &none                    &kp LC(MINUS)          &kp F2     &kp UP     &kp K_APPLICATION  &kp PRINTSCREEN   &PC_shutdown2
+&none   &kp F4             &kp LS(LG(LEFT))  &kp LG(LS(RIGHT))  &kp LC(NUMBER_1)  &none                    &kp LC(LS(SEMICOLON))  &kp LEFT   &kp DOWN   &kp RIGHT          &none             &kp LC(S)
+&trans  &kp LC(SEMICOLON)  &kp LC(APOS)      &none              &kp LS(LC(N))     &none                    &kp LC(X)              &kp LC(C)  &kp LC(V)  &kp LC(LS(V))      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+        &trans             &none             &none              &none             &none  &none    &kp RET  &kp BSPC                                     &none              &none
             >;
         };
 
