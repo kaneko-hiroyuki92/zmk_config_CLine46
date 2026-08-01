@@ -83,18 +83,6 @@
     combos {
         compatible = "zmk,combos";
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;
-            layers = <0>;
-        };
-
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
-            layers = <0>;
-        };
-
         combo_f7_l0 {
             bindings = <&kp F7>;
             key-positions = <7 8>;
@@ -159,6 +147,18 @@
             bindings = <&kp LC(Z)>;
             key-positions = <15 40>;
             layers = <0>;
+        };
+
+        Home {
+            bindings = <&kp HOME>;
+            key-positions = <8 9>;
+            layers = <1>;
+        };
+
+        End {
+            bindings = <&kp END>;
+            key-positions = <20 21>;
+            layers = <1>;
         };
     };
 
@@ -226,7 +226,7 @@
 &none  &kp LG(DOWN)       &kp LG(LEFT)      &kp LG(UP)         &kp LG(RIGHT)     &none                    &kp LC(MINUS)          &kp F2     &kp UP     &kp K_APPLICATION  &kp PRINTSCREEN   &PC_shutdown2
 &none  &kp F4             &kp LS(LG(LEFT))  &kp LG(LS(RIGHT))  &kp LC(NUMBER_1)  &none                    &kp LC(LS(SEMICOLON))  &kp LEFT   &kp DOWN   &kp RIGHT          &none             &kp LC(S)
 &none  &kp LC(SEMICOLON)  &kp LC(APOS)      &none              &kp LS(LC(N))     &none                    &kp LC(X)              &kp LC(C)  &kp LC(V)  &kp LC(LS(V))      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-       &none              &none             &none              &none             &none  &none    &kp RET  &kp BSPC                                     &none              &none
+       &trans             &none             &none              &none             &none  &none    &kp RET  &kp BSPC                                     &none              &none
             >;
         };
 
