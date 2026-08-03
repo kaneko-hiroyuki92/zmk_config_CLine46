@@ -72,16 +72,15 @@
             bindings = <&kp LG(TAB)>;
         };
 
-    gesture_desktop_previous {
-        pattern = <GESTURE_DOWN GESTURE_LEFT>;
-        bindings = <&kp LC(LG(LEFT))>;
-    };
+        gesture_desktop_previous {
+            pattern = <GESTURE_DOWN GESTURE_LEFT>;
+            bindings = <&kp LC(LG(LEFT))>;
+        };
 
-    gesture_desktop_next {
-        pattern = <GESTURE_DOWN GESTURE_RIGHT>;
-        bindings = <&kp LC(LG(RIGHT))>;
-    };
-
+        gesture_desktop_next {
+            pattern = <GESTURE_DOWN GESTURE_RIGHT>;
+            bindings = <&kp LC(LG(RIGHT))>;
+        };
     };
 };
 
@@ -158,6 +157,12 @@
             bindings = <&kp END>;
             key-positions = <20 21>;
             layers = <1>;
+        };
+
+        Alt+Tab {
+            bindings = <&kp LA(TAB)>;
+            key-positions = <20 43>;
+            layers = <0>;
         };
     };
 
