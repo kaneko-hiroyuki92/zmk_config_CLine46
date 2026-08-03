@@ -163,6 +163,7 @@
             bindings = <&kp LEFT_ALT>;
             key-positions = <20 43>;
             layers = <0>;
+            slow-release;
         };
     };
 
