@@ -159,8 +159,8 @@
             layers = <1>;
         };
 
-        Alt+Tab {
-            bindings = <&kp LA(TAB)>;
+        Alt {
+            bindings = <&kp LEFT_ALT>;
             key-positions = <20 43>;
             layers = <0>;
         };
