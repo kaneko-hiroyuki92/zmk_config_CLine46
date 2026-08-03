@@ -71,6 +71,17 @@
             pattern = <GESTURE_DOWN>;
             bindings = <&kp LG(TAB)>;
         };
+
+    gesture_desktop_previous {
+        pattern = <GESTURE_DOWN GESTURE_LEFT>;
+        bindings = <&kp LC(LG(LEFT))>;
+    };
+
+    gesture_desktop_next {
+        pattern = <GESTURE_DOWN GESTURE_RIGHT>;
+        bindings = <&kp LC(LG(RIGHT))>;
+    };
+
     };
 };
 
