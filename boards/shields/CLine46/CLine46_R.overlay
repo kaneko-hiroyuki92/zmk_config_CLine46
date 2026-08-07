@@ -118,7 +118,7 @@
     };
 
     esc_pointer {
-        layers = <2>;
+        layers = <6>;
         input-processors =
             <&mouse_runtime_input_processor>,
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
