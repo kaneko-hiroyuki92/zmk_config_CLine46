@@ -159,6 +159,12 @@
             layers = <1>;
         };
 
+        mouse_toggle {
+            bindings = <&tog 2>;
+            key-positions = <7 10>;
+            layers = <0 2>;
+        };
+
         Alt {
             bindings = <&kp LEFT_ALT>;
             key-positions = <20 43>;
