@@ -117,8 +117,8 @@
             <&zip_scroll_scaler 1 12>;                           //スクロール量を1/12倍
     };
 
-    esc_pointer {
-        layers = <6>;
+    t_pointer {
+        layers = <2>;
         input-processors =
             <&mouse_runtime_input_processor>,
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
