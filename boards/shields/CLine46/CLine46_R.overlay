@@ -21,6 +21,16 @@
 
 
 / {
+    zip_xy_blocker: zip_xy_blocker {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        map = <
+            INPUT_REL_X INPUT_REL_RX
+            INPUT_REL_Y INPUT_REL_RY
+        >;
+    };
+
     trackball_listener {
         status = "okay";
         compatible = "zmk,input-listener";
@@ -79,12 +89,13 @@
 // Overrides for the input listener node
 &trackball_listener {
     status = "okay";
-    input-processors =<&mouse_runtime_input_processor>,
+    input-processors =
+        <&mouse_runtime_input_processor>,
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
         <&zip_mouse_gesture>,
-        <&zip_temp_layer 2 10000>;                            //オートマウスレイヤーの選択;
+        <&zip_xy_blocker>;                                  //通常時はカーソル移動を無効化;
 
     screenshot_gesture {
         layers = <5>;
@@ -104,5 +115,14 @@
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
             //<&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   //スクロールのY軸反転
             <&zip_scroll_scaler 1 12>;                           //スクロール量を1/12倍
+    };
+
+    esc_pointer {
+        layers = <6>;
+        input-processors =
+            <&mouse_runtime_input_processor>,
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_mouse_gesture>,
+            <&zip_temp_layer 2 10000>;
     };
 };
