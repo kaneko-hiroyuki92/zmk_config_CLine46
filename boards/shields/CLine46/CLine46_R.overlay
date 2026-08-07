@@ -118,11 +118,10 @@
     };
 
     esc_pointer {
-        layers = <6>;
+        layers = <2>;
         input-processors =
             <&mouse_runtime_input_processor>,
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_mouse_gesture>,
-            <&zip_temp_layer 2 10000>;
+            <&zip_mouse_gesture>;
     };
 };
