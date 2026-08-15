@@ -171,6 +171,12 @@
             layers = <0>;
             slow-release;
         };
+
+        F5_ {
+            bindings = <&kp F5>;
+            key-positions = <20 19>;
+            layers = <2>;
+        };
     };
 
     macros {
