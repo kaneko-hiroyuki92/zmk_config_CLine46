@@ -98,21 +98,32 @@ jobs:
         working-directory: ${{ env.base_dir }}
         shell: bash
         run: |
+          # A previous Actions cache may contain this source file already patched.
+          # Always restore the manifest revision first so the build is reproducible.
+          git -C zmk restore --source=HEAD -- app/src/pointing/input_listener.c
+
           python3 - <<'PY'
           from pathlib import Path
           import re
 
           path = Path("zmk/app/src/pointing/input_listener.c")
           text = path.read_text()
-          pattern = r"(if \(!override->process_next\) \{\s*)return 0;(\s*\})"
-          replacement = r"\1return ret;\2"
-          patched, count = re.subn(pattern, replacement, text, count=1)
+          old_pattern = r"(if \(!override->process_next\) \{\s*)return 0;(\s*\})"
+          fixed_pattern = r"if \(!override->process_next\) \{\s*return ret;\s*\}"
 
-          if count != 1:
-              raise SystemExit(f"Expected exactly one input-listener stop block, found {count}")
+          old_count = len(re.findall(old_pattern, text))
+          fixed_count = len(re.findall(fixed_pattern, text))
 
-          path.write_text(patched)
-          print("Applied input processor stop propagation fix")
+          if old_count == 1:
+              patched = re.sub(old_pattern, r"\1return ret;\2", text, count=1)
+              path.write_text(patched)
+              print("Applied input processor stop propagation fix")
+          elif old_count == 0 and fixed_count == 1:
+              print("Input processor stop propagation is already fixed upstream")
+          else:
+              raise SystemExit(
+                  f"Unexpected input-listener state: old={old_count}, fixed={fixed_count}"
+              )
           PY
 
           grep -A2 -B1 'if (!override->process_next)' zmk/app/src/pointing/input_listener.c
