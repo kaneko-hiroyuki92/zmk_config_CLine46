@@ -100,27 +100,23 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
 
           path = Path("zmk/app/src/pointing/input_listener.c")
-          old = """                if (!override->process_next) {
-                      return 0;
-                  }
-          """
-          new = """                if (!override->process_next) {
-                      return ret;
-                  }
-          """
-
           text = path.read_text()
-          count = text.count(old)
+          pattern = r"(if \(!override->process_next\) \{\s*)return 0;(\s*\})"
+          replacement = r"\1return ret;\2"
+          patched, count = re.subn(pattern, replacement, text, count=1)
+
           if count != 1:
               raise SystemExit(f"Expected exactly one input-listener stop block, found {count}")
 
-          path.write_text(text.replace(old, new, 1))
+          path.write_text(patched)
           print("Applied input processor stop propagation fix")
           PY
 
           grep -A2 -B1 'if (!override->process_next)' zmk/app/src/pointing/input_listener.c
+          grep -A2 -B1 'if (!override->process_next)' zmk/app/src/pointing/input_listener.c | grep -q 'return ret;'
 
       - name: West Zephyr export
         working-directory: ${{ env.base_dir }}
