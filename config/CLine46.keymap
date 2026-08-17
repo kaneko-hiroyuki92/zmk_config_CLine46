@@ -177,6 +177,30 @@
             key-positions = <20 19>;
             layers = <2>;
         };
+
+        Ctl+T {
+            bindings = <&kp LC(T)>;
+            key-positions = <5 41>;
+            layers = <0>;
+        };
+
+        Ctl+B {
+            bindings = <&kp LC(B)>;
+            key-positions = <29 41>;
+            layers = <0>;
+        };
+
+        Ctl+F5 {
+            bindings = <&kp LC(F5)>;
+            key-positions = <7 42>;
+            layers = <0>;
+        };
+
+        Shift+F5 {
+            bindings = <&kp LS(F5)>;
+            key-positions = <6 42>;
+            layers = <0>;
+        };
     };
 
     macros {
